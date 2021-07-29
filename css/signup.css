@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Slab:ital,wght@1,600&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Josefin sans";
+  text-decoration: none;
+  list-style: none;
+}
+:focus {
+  outline: none;
+}
+body {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  width: 25%;
+  height: 50%;
+  border: 1px #581845 solid;
+  border-radius: 2%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.content {
+  width: 90%;
+  height: 100%;
+}
+.navbar {
+  height: 40px;
+}
+.con {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  font-size: 22px;
+  font-weight: 900;
+  color: teal;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+}
+
+.submit {
+  background-color: #12de9c;
+  border: none;
+  height: 3rem;
+  width: 100%;
+  margin-top: 10px;
+  color: white;
+  font-size: 22px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 15px;
+  margin-bottom: 10px;
+}
+.sub-content a {
+  color: black;
+}
+.sub-content p {
+  margin: 0;
+  display: hidden;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.text {
+  font-size: 13px;
+  color: #d93025;
+}
+.input-content {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+}
+.input-content input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px grey solid;
+  transition: 100ms ease;
+  font-size: 15px;
+}
+.form:focus {
+  border-color: #1a73e8;
+}
+.input-content p {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  user-select: none;
+  pointer-events: none;
+  transition: 100ms ease;
+  opacity: 70%;
+}
+
+.form:not(:placeholder-shown) + .form-label,
+.form:focus + .form-label {
+  color: #1a73e8;
+  top: -15px;
+  padding: 3px;
+  background-color: white;
+  display: block;
+  font-size: 14px;
+  transition: 100ms ease;
+  opacity: 1;
+}
+
+.form:not(:focus) + .form-label {
+  color: #5f6371;
+}
