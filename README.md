@@ -1,9 +1,9 @@
 # Javascript_core
 
-Build a simple User Management with javascript
+Build a simple User Management with javascript using localStorage and mockAPI only
 
 Filter, Pagination
-Update personal information (name, password and avatar)
+Update personal information
 Add, delete, edit content
 More functions will be updated later...
 
