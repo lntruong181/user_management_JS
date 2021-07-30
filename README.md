@@ -1,14 +1,11 @@
 # Javascript_core
+
 Build a simple User Management with javascript
 
-Filter, Pagination, sort, search.
-Shopping cart, Payment by paypal, Momo ..
+Filter, Pagination
 Update personal information (name, password and avatar)
-Change permissions and delete user account with Admin (root).
-Multiple images uploaded in the cloudinary.
-Add, delete, edit products, categories ...
-Deploy vercel
-More functions will be updated more ...
+Add, delete, edit content
+More functions will be updated later...
 
 Login Interface
 ![Capture](https://user-images.githubusercontent.com/72255700/127589085-5df18fc4-a6e1-4fd6-9c7a-862cb4e6a893.PNG)
