@@ -1,4 +1,4 @@
-import changeView from "./user_profile.js";
+// import changeView from "./user_profile.js";
 const endpoint = "https://60fe719525741100170785bd.mockapi.io/api/v1/contents";
 const ultag = document.querySelector("ul");
 createTable();
@@ -14,10 +14,11 @@ async function createTable() {
   );
 
   const userEmail = localStorage.getItem("email");
+  let rawListUser = content.filter((e) => e.userID == userEmail);
   let listUserContent = content
     .filter((e) => e.userID == userEmail)
     .slice(start, end);
-  var totalPage = Math.ceil(content.length / perPage) - 1;
+  var totalPage = Math.ceil(rawListUser.length / perPage);
   handlePagination(totalPage, page);
 
   renderContent(listUserContent);
@@ -26,23 +27,25 @@ async function createTable() {
 function renderContent(listUserContent) {
   let tdTag = "";
   for (let i = 0; i < perPage; i++) {
-    const body = document.getElementById("body");
-    let row = document.createElement("tr");
-    row.innerHTML = "";
-    tdTag += "<tr>";
-    tdTag += "<td>" + listUserContent[i].id + "</td>";
-    tdTag += "<td>" + listUserContent[i].title + "</td>";
-    tdTag += "<td>" + listUserContent[i].brief + "</td>";
-    tdTag += "<td>" + listUserContent[i].description + "</td>";
-    tdTag += "<td>" + listUserContent[i].createdDate + "</td>";
-    tdTag += `<td>
+    try {
+      const body = document.getElementById("body");
+      let row = document.createElement("tr");
+      row.innerHTML = "";
+      tdTag += "<tr>";
+      tdTag += "<td>" + listUserContent[i].id + "</td>";
+      tdTag += "<td>" + listUserContent[i].title + "</td>";
+      tdTag += "<td>" + listUserContent[i].brief + "</td>";
+      tdTag += "<td>" + listUserContent[i].description + "</td>";
+      tdTag += "<td>" + listUserContent[i].createdDate + "</td>";
+      tdTag += `<td>
     <div class="action-content">
-        <i  class="action far fa-eye"></i>
-        <i  class='action fas fa-wrench'  onclick='handleAction(${listUserContent[i].id})'></i>
-        <i  class='action fas fa-trash-alt'></i>
+        <i  class="action far fa-eye" onclick='handleActionContent(${listUserContent[i].id},"view")'></i>
+        <i  class='action fas fa-wrench'  onclick='handleActionContent(${listUserContent[i].id},"update")'></i>
+        <i  class='action fas fa-trash-alt' onclick = 'handleActionContent(${listUserContent[i].id},"delete")'></i>
     </div>
   </td>`;
-    tdTag += "</tr>";
+      tdTag += "</tr>";
+    } catch {}
   }
   body.innerHTML = tdTag;
 }
@@ -121,16 +124,88 @@ function onChangePage(newPage) {
   createTable();
 }
 
-function handleAction(contentID) {
-  localStorage.setItem("contentID", contentID);
-  const title = document.getElementById("content_title");
-  const brief = document.getElementById("content_brief");
-  const desc = document.getElementById("content_descriptions");
-  title.value = contentID;
-  changeView("FormContent");
-  // let x = document.getElementsByClassName("content");
-  // for (i = 0; i < x.length; i++) {
-  //   x[i].style.display = "none";
-  // }
-  // document.getElementById("FormContent").style.display = "block";
+/*************************************
+
+
+
+
+
+
+HANDLE ACTION EVENT
+
+
+
+
+
+
+
+**************************************/
+
+async function handleActionContent(contentID, method) {
+  let content = await fetch(endpoint).then((response) =>
+    response.json().then((content) => {
+      return content;
+    })
+  );
+  let contentDetail = content.filter((e) => e.id == contentID);
+  console.log(method);
+  switch (method) {
+    case "view": {
+      ViewContent(contentID, contentDetail);
+      break;
+    }
+    case "update": {
+      UpdateContent(contentID, contentDetail);
+      break;
+    }
+    case "delete": {
+      DeleteContent(contentID);
+      break;
+    }
+  }
+}
+
+function UpdateContent(contentID, contentDetail) {
+  localStorage.setItem("contentID", contentDetail[0].id);
+  localStorage.setItem("title", contentDetail[0].title);
+  localStorage.setItem("brief", contentDetail[0].brief);
+  localStorage.setItem("desc", contentDetail[0].description);
+  title.value = contentDetail[0].title;
+  brief.value = contentDetail[0].brief;
+  desc.value = contentDetail[0].description;
+  header.textContent = "Edit Content";
+  btn_content_submit.disabled = true;
+  document.getElementById("ViewContent").style.display = "none";
+  document.getElementById("AddContent").style.display = "block";
+}
+function DeleteContent(contentID) {
+  fetch(endpoint2 + "/" + contentID, {
+    method: "DELETE", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then(() => {
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+function ViewContent(contentID, contentDetail) {
+  localStorage.setItem("title", contentDetail[0].title);
+  localStorage.setItem("brief", contentDetail[0].brief);
+  localStorage.setItem("desc", contentDetail[0].description);
+  title.value = contentDetail[0].title;
+  brief.value = contentDetail[0].brief;
+  desc.value = contentDetail[0].description;
+  header.textContent = "View Content";
+  title.disabled = true;
+  brief.disabled = true;
+  desc.disabled = true;
+  btn_content_submit.disabled = true;
+  btn_content_reset.disabled = true;
+  document.getElementById("ViewContent").style.display = "none";
+  document.getElementById("AddContent").style.display = "block";
 }

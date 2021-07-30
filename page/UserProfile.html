@@ -14,132 +14,17 @@
     <link rel="stylesheet" href="/css/userprofile.css" />
   </head>
   <body>
-    <header>
-      <!-- NAVBAR -->
-
-      <div class="navbar">
-        <p>CSM <span>Code</span></p>
-        <div class="search_bar">
-          <input type="text" placeholder="Search...">  </input>
-          <i class="fas fa-search"></i>
-        </div>
-          <div class="dropdown"><i class="icon fas fa-user"></i>
-            <div class="dropdown-content">
-              <button class="profileContent" id="view"><i class="fas fa-user" ></i> User Profile</button>
-              <button  class="btn" id="logout"> <i class="fas fa-sign-out-alt"></i> Logout</button>
-            </div>
-          </div>
-      </div>
-
-
-      <!-- SIDE BAR -->
-
-
-      <div class="sidebar">
-        
-        <div class="category">
-          <a class="viewContent" id="view" onclick = "openView('ViewContent')"><i class="fas fa-list"></i> <span>View contents</span> </a>
-          <a class="FormContent" onclick = "openView('FormContent')"><i class="fas fa-book-open"></i> <span>Form content</span> </a>
-        </div>
-       
-      </div>
-
-      <!-- PROFILE CONTENT O DAY -->
-
-      <div id="profileContent" class="content" style="display: none">
-        <h2>Edit Profile</h2>
-        <div class="sub-content">
-          <p class="hero">Profile Form Elements</p>
-          <div class="sub-content-hero">
-            <p>First Name</p>
-            <input class="info" id="firstname" placeholder="Enter the first name">
-            <p>Last Name</p>
-            <input class="info" id="lastname"  placeholder="Enter the last name" id="w3review" name="w3review" >
-              </input>
-              <p>Email</p>
-              <input class="info" id="email" id="w3review" name="w3review" disabled >
-              </input>
-              <p>Phone</p>
-              <input class="info" id="phone"  placeholder="Enter the phone number" id="w3review" name="w3review" >
-              </input>
-              <p>Descriptions</p>
-              <textarea  id="descriptions" name="w3review" ></textarea>
-              <button id="btn_submit">Submit Button</button>
-              <button id="btn_reset">Reset Button</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- VIEW CONTENT O DAY  -->
-
-
-      <div id="ViewContent" class="content" >
-        <h2>View Profile</h2>
-        <div class="sub-content">
-          <p class="hero">Profile Form Elements</p>
-          <table id="content">
-            <thead>
-              <th>#</th>
-              <th>Title</th>
-              <th>Brief</th>
-              <th>Descriptions</th>
-              <th>Created Date</th>
-              <th>Action</th>
-            </thead>
-            <tbody id="body">
-
-            </tbody>
-          </table>
-        </div>
-        <div class="pagination">
-          <div class="page-content">
-            <ul id="list_page">
-              <!-- <li class ='btn prev'><span> <i class="fas fa-angle-left"></i> Prev</span></li>
-              <li class ='numb '><span>1</span></li>
-              <li class ='numb'><span>2</span></li>
-              <li class ='numb'><span>3</span></li>
-              <li class ='numb'><span>4</span></li>
-              <li class ='numb'><span>...</span></li>
-              <li class ='numb'><span>10</span></li>
-              <li class ='btn next'><span>Next <i class="fas fa-angle-right"></i></span></li> -->
-            </ul>
-          </div>
-         
-      </div>
-      </div>
-
-
-      <!-- FORM CONTENT O DAY -->
-
-
-
-      <div id="FormContent" class="content" style="display: none">
-        <h2>Add Content</h2>
-        <div class="sub-content">
-          <p class="hero">Profile Form Elements</p>
-          <div class="sub-content-hero">
-            <p>Title<span class="required">*</span></p>
-            <input class="add_content" id="content_title" placeholder="Enter the title ">
-            <span class="hint" id ='hint_title'></span>
-            <p>Brief<span class="required">*</span></p>
-            <textarea  id="content_brief" class="add_content" name="w3review" ></textarea>
-            <span  class="hint" id ='hint_brief'></span>
-
-              <p>Descriptions<span class="required">*</span></p>
-              <textarea class="add_content"  id="content_descriptions" name="w3review" rows="5"></textarea>
-            <span  class="hint" id ='hint_desc'></span>
-              <button id="btn_content_submit">Submit Button</button>
-              <button id="btn_content_reset">Reset Button</button>
-              <i id="icon_success" class="icon_succes fas fa-check"></i>
-
-          </div>
-        </div>
-       
-      </div>
-    </header>
-    <script src="./../module/user/user_profile.js" type="module" ></script>
-    <script src="./../module/user/form_content.js" type="module"></script>
-    <script src="./../module/user/addContent.js" type="module"></script>
-
+    <script
+      src="./../module/user/user_profile.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="./../module/user/form_content.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="./../module/user/addContent.js"
+      type="text/javascript"
+    ></script>
   </body>
 </html>

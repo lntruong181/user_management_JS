@@ -145,8 +145,8 @@ input[type="text"]:focus {
   left: 280px;
   margin-top: 5px;
 }
-.content h2 {
-  padding: 20px 0 0 10px;
+.content .heading {
+  padding: 10px 0 0 10px;
   font-size: 25px;
   font-weight: 400;
 }

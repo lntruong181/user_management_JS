@@ -1,6 +1,47 @@
-if (localStorage.getItem("authen") == 1) {
-  window.location = "/page/UserProfile.html";
+if (localStorage.getItem("authen") == 0) {
+  const div = ` <div class="container login">
+  <div class="content">
+    <div class="header">
+      <p>Sign In</p>
+    </div>
+
+    <!-- FORM INPUT  -->
+
+    <div class="sub-content">
+      <div class="input-content">
+        <input
+          autofocus
+          class="form"
+          id="email"
+          placeholder=" "
+          type="e-mail"
+        />
+        <p class="form-label">Email</p>
+      </div>
+      <p class="text" id="text_email"></p>
+      <div class="input-content">
+        <input class="form" id="password" placeholder=" " type="password" />
+        <p class="form-label">Password</p>
+      </div>
+      <p class="text" id="text_password"></p>
+
+      <!-- BUTTON SUBMIT -->
+
+      <div class="checkbox__button">
+        <input class="checkbox" type="checkbox">  <p class="remember">Remember Me</p> </input>
+      </div>
+      <button>Login</button>
+      <a href="/page/register.html">Click here to Register</a>
+    </div>
+  </div>
+</div>`;
+
+  const loginPage = document.querySelector("body");
+  loginPage.innerHTML = div;
+} else {
+  location.replace("http://127.0.0.1:5500/page/UserProfile.html");
 }
+
 const btn = document.querySelector("button");
 btn.addEventListener("click", dangnhap);
 

@@ -1,4 +1,53 @@
-if (localStorage.getItem("authen") == 1) {
+if (localStorage.getItem("authen") == 0) {
+  const div = ` <div class="container">
+  <div class="content">
+    <div class="narbar">
+      <p class="con">Register</p>
+    </div>
+    <div class="sub-content">
+      <div class="input-content">
+        <input
+          class="form"
+          placeholder=" "
+          autofocus
+          id="username"
+          type="text"
+        />
+        <p class="form-label">Name</p>
+      </div>
+      <p class="text" id="text_username"></p>
+      <div class="input-content">
+        <input class="form" placeholder=" " id="email" type="email" />
+        <p class="form-label">Email</p>
+      </div>
+      <p class="text" id="text_email"></p>
+
+      <div class="input-content">
+        <input class="form" placeholder=" " id="password" type="password" />
+        <p class="form-label">Password</p>
+      </div>
+      <p class="text" id="text_password" value="sdf"></p>
+
+      <div class="input-content">
+        <input
+          class="form"
+          placeholder=" "
+          id="repassword"
+          type="password"
+        />
+        <p class="form-label">Repassword</p>
+      </div>
+      <p class="text" id="text_repassword"></p>
+      <button id="submit" class="submit" type="submit" value="Register">
+        Register
+      </button>
+      <a href="/page/login.html">Click here to Login</a>
+    </div>
+  </div>
+</div>`;
+  const RegisterPage = document.querySelector("body");
+  RegisterPage.innerHTML = div;
+} else {
   window.location = "/page/UserProfile.html";
 }
 
